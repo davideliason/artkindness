@@ -14,4 +14,7 @@ This is also a learning opportunity, and the beginning stages will include the c
 4.5) Created a redirect using subdomain www.artkndness.com to artkindess.com using A Record
 5) create VPC in us-west-2 with private SN and public SN
 6) spin up EC2 instance in public subnet with SG settings for port 22 and 80 open
+7) connect to ec2 via ssh and install node.js and git
+8) decided to try serverless instead using API-Gateway
+9) Create DynamoDB table in AWS with table name as "Donations" and Partition Key as "id" (type string)
 
