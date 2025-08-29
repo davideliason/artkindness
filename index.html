@@ -96,7 +96,15 @@
                               document.getElementById("result").innerText = await res.text();
                               }
 
-
+                        function getFormData() { <!-- function to obtain the data using id specifier --> 
+                               return {
+                                    id: document.getElementById("id").value,
+                                    name: document.getElementById("name").value,
+                                    donation: document.getElementById("donation").value,
+                                    quantity: document.getElementById("quantity").value,
+                                    date: document.getElementById("date").value
+                                      };
+                                               }
 
                 </script>
             </div>
