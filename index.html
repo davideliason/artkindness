@@ -60,7 +60,15 @@
 
                 <script>
                         const apiUrl = _API_GATEWAY_ENDPOINT"; <!-- after the API Gateway is created, the value to point to it will go here -->
-
+                        async function createDonation() { <!-- asynchronous function to create 
+                              const data = getFormData();
+                              const res = await fetch(apiUrl, {
+                                  method: "POST",
+                                  body: JSON.stringify(data),
+                                  headers: { "Content-Type": "application/json" }
+                                   });
+                        document.getElementById("result").innerText = await res.text();
+                              }
                 </script>
             </div>
         </body>
