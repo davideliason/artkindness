@@ -67,8 +67,17 @@
                                   body: JSON.stringify(data),
                                   headers: { "Content-Type": "application/json" }
                                    });
-                        document.getElementById("result").innerText = await res.text();
+                              document.getElementById("result").innerText = await res.text();
+                               }
+
+                        async function getDonation() { <!-- obtains the particular donation id and then obtains the values for that particular id and the output is diplayed in section -->
+                             const id = document.getElementById("id").value;
+                             const res = await fetch(`${apiUrl}?id=${id}`);
+                             document.getElementById("result").innerText = await res.text();
                               }
+
+
+
                 </script>
             </div>
         </body>
