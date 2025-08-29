@@ -32,29 +32,23 @@
 
         </head>
         <body>
-            <div class="container">
+            <div class="container"> # form for data values input
                 <h2> Local Shelter Donation Form</h2>
                 <form id="donationForm">
-                        <label for="donorName">Donor's Name:</label>
-                        <input type="text" id="donorName" name="donorName" required>
-
-                        <label for="donationType">Type of Donation:</label>
-                        <select id="donationType" name="donationType" required> # form input values
-                                <option value="">Select Type</option>
-                                <option value="money">Money</option>
-                                <option value="food">Food</option>
-                                <option value="clothing">Clothing</option>
-                                <option value="furniture">Furtniture>/option>
-                                <option value="other">Other</option>
-                        </select>
-
-                        <label for="quantityAmount">Quantity or Amount of Donation:</label>
-                        <input type="text" id="quantityAmount" name="quantityAmount" placeholder="ex: $20, 5 shirts" required>
-
-                        <label for="donationDate">Donation Date:</label>
-                        <input type="date" id="donationDate" name="donationDate" required>
-
-                        <input type="submit" value="Submit Donattion">
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="number" name="quantity" placeholder="Quantity" required />
+                    <input type="text" name="donationType" placeholder="Donation type" required />
+                    <input type="date" name="donationDate" placeholder="Date" required />
+                    <button type="submit">Submit</button>
                 </form>
+    
+                <script>
+                    document.getElementById('myForm').addEventListener('submit', async function (e) {
+                       e.preventDefault(); #when submit button is clicked prevent default submit action (page reload)
+
+                </script>
+
+
+
             </div>
         </body>
