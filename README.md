@@ -17,4 +17,5 @@ This is also a learning opportunity, and the beginning stages will include the c
 7) connect to ec2 via ssh and install node.js and git
 8) decided to try serverless instead using API-Gateway
 9) Create DynamoDB table in AWS with table name as "Donations" and Partition Key as "id" (type string)
+10) Create lambda function that uses node.js to CRUD
 
