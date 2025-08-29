@@ -32,9 +32,9 @@
 
         </head>
         <body>
-            <div class="container"> # form for data values input
+            <div class="container"> 
                 <h2> Local Shelter Donation Form</h2>
-                <form id="donationForm">
+                <form id="donationForm"> <!-- input form for donation values -->
                     <input type="text" name="name" placeholder="Name" required />
                     <input type="number" name="quantity" placeholder="Quantity" required />
                     <input type="text" name="donationType" placeholder="Donation type" required />
@@ -44,8 +44,9 @@
     
                 <script>
                     document.getElementById('myForm').addEventListener('submit', async function (e) {
-                       e.preventDefault(); #when submit button is clicked prevent default submit action (page reload)
-
+                      e.preventDefault();
+                      const formData = new FormData(e.target);
+                      const jsonData = Object.fromEntries(formData.entries());      
                 </script>
 
 
