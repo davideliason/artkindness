@@ -84,7 +84,19 @@
                                  headers: { "Content-Type": "application/json" }
                                  });
                              document.getElementById("result").innerText = await res.text();
-    }
+                             }
+
+                        async function deleteDonation() { <!-- function to delete donation using object id -->
+                              const id = document.getElementById("id").value;
+                              const res = await fetch(apiUrl, {
+                                 method: "DELETE",
+                                 body: JSON.stringify({ id }),
+                                 headers: { "Content-Type": "application/json" }
+                                  });
+                              document.getElementById("result").innerText = await res.text();
+                              }
+
+
 
                 </script>
             </div>
