@@ -47,9 +47,15 @@
   color: #38bdf8;
 }
 
-.url-link a {
-    color: yellow;
+.url-link {
+  color: #facc15;
+  text-decoration: none;
 }
+
+.url-link:hover {
+  color: #ffd700; /* slightly nicer gold on hover */
+}
+
 
 /* MOBILE NAV */
 @media (max-width: 600px) {
