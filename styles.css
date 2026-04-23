@@ -1,77 +1,63 @@
-/* Base reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Background */
+/* PAGE BACKGROUND */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #f8fafc;
   min-height: 100vh;
-  margin: 0;
 
   display: flex;
   flex-direction: column;
 }
-.container {
+
+/* MAIN WRAPPER (centers content) */
+.wrapper {
   flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
-.footer {
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.7;
-  padding: 20px;
-}
-/* Layout container */
-.container {
-  width: 100%;
-  max-width: 700px;
-}
-
-/* Card */
+/* CARD */
 .card {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   border-radius: 20px;
+
   padding: 40px 28px;
-  text-align: center;
   animation: fadeIn 1s ease-out;
 }
 
-/* Title */
+/* TITLE */
 h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
+/* EMOJI */
 .emoji {
   font-size: 1.2em;
+  animation: float 2.5s ease-in-out infinite;
 }
 
-/* subtle floating animation */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-/* Text */
+/* TEXT */
 .lead {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -79,7 +65,12 @@ h1 {
   opacity: 0.9;
 }
 
-/* Divider */
+.footer-text {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* DIVIDER */
 .divider {
   width: 60px;
   height: 2px;
@@ -88,13 +79,24 @@ h1 {
   border-radius: 2px;
 }
 
-/* Footer text */
-.footer-text {
-  font-size: 1rem;
-  opacity: 0.85;
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 20px;
+  opacity: 0.7;
 }
 
-/* Animation */
+.footer a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATIONS */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -106,7 +108,13 @@ h1 {
   }
 }
 
-/* Mobile tweaks */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
   h1 {
     font-size: 2rem;
