@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
+
 <body>
   <nav class="navbar">
   <div class="logo">Art Kindness</div>
@@ -63,37 +64,6 @@
   </div>
 </footer>
 </body>
-  <script>
-    async function loadImage() {
-      const apiUrl = "https://9nxzsz8l15.execute-api.us-west-2.amazonaws.com/get-image";
-
-      const message = document.getElementById("message");
-      const imageCard = document.getElementById("image-card");
-      const image = document.getElementById("s3-image");
-
-      message.textContent = "Loading image...";
-      imageCard.style.display = "none";
-
-      try {
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-          throw new Error("API request failed");
-        }
-
-        const data = await response.json();
-
-        image.src = data.image;
-        imageCard.style.display = "block";
-        message.textContent = "Image loaded successfully.";
-
-      } catch (error) {
-        console.error(error);
-        message.textContent = "Could not load image. Check API Gateway, Lambda, CORS, and S3 permissions.";
-      }
-    }
-  </script>
-
 </html>
 
 
