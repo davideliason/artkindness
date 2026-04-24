@@ -5,3 +5,8 @@ Art can be powerful in shaping the way we view and understand the world.
 It can create opportunities to spark conversation, challenge assumptions.
 While it can be very aesthetically pleasing, it must be willing to address the harsh realities of experience.
 Added CI/CD. New workflow.
+
+blog.html              main blog page
+posts/post-1.html      full article
+posts/post-2.html      full article
+posts/post-3.html      full article
