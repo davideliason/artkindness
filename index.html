@@ -40,16 +40,19 @@
       <p class="footer-text">
         Here we explore both. Welcome to the journey!
       </p>
-
     </div>
-    <div>
-      <button id="loadImageBtn">Show Image</button>
+ 
+<button id="loadImageBtn">Show Image</button>
 
 <br><br>
 
-<img id="myImage" src="" alt="Art Kindness logo" style="max-width: 400px; display: none;" />
-       </div>
-  </main>
+<img 
+  id="myImage" 
+  src="" 
+  alt="Art Kindness image" 
+  style="max-width: 400px; display: none;" 
+/>
+
 
   <footer class="footer">
     created by 
@@ -63,12 +66,19 @@
   const apiUrl = "https://p4vthfxr0g.execute-api.us-west-2.amazonaws.com/get-image";
 
   document.getElementById("loadImageBtn").addEventListener("click", async () => {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
 
-    const img = document.getElementById("myImage");
-    img.src = data.imageUrl;
-    img.style.display = "block";
+      const img = document.getElementById("myImage");
+      img.src = data.imageUrl;
+      img.style.display = "block";
+
+    } catch (error) {
+      console.error("Error loading image:", error);
+      alert("Could not load image.");
+    }
   });
 </script>
 </html>
+
