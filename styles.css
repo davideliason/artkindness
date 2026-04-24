@@ -142,6 +142,20 @@ h1 {
   margin-bottom: 14px;
 }
 
+.read-more {
+  display: inline-block;
+  margin-top: 16px;
+  color: #facc15;
+  text-decoration: none;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.read-more:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
