@@ -41,44 +41,59 @@
         Here we explore both. Welcome to the journey!
       </p>
     </div>
- 
-<button id="loadImageBtn">Show Image</button>
+  </main>
 
-<br><br>
-
-<img 
-  id="myImage" 
-  src="" 
-  alt="Art Kindness image" 
-  style="max-width: 400px; display: none;" 
-/>
-
-
-  <footer class="footer">
-    created by 
+  <footer>
+   <p> Created by 
     <a href="https://www.davethemaker.com" target="_blank" rel="noopener noreferrer">
       DaveTheMaker
     </a>
-  </footer>
+   </p>
 
+  <p>Click the button below to load an image from S3 using Lambda and API Gateway.</p>
+
+    <button onclick="loadImage()">Load Image</button>
+
+    <div id="message"></div>
+
+    <div id="image-card">
+      <h2>Image from S3</h2>
+      <img id="s3-image" src="" alt="Image loaded from S3" />
+    </div>
+  </div>
+</footer>
 </body>
-<script>
-  const apiUrl = "https://p4vthfxr0g.execute-api.us-west-2.amazonaws.com/get-image";
+  <script>
+    async function loadImage() {
+      const apiUrl = "https://9nxzsz8l15.execute-api.us-west-2.amazonaws.com/get-image";
 
-  document.getElementById("loadImageBtn").addEventListener("click", async () => {
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
+      const message = document.getElementById("message");
+      const imageCard = document.getElementById("image-card");
+      const image = document.getElementById("s3-image");
 
-      const img = document.getElementById("myImage");
-      img.src = data.imageUrl;
-      img.style.display = "block";
+      message.textContent = "Loading image...";
+      imageCard.style.display = "none";
 
-    } catch (error) {
-      console.error("Error loading image:", error);
-      alert("Could not load image.");
+      try {
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error("API request failed");
+        }
+
+        const data = await response.json();
+
+        image.src = data.image;
+        imageCard.style.display = "block";
+        message.textContent = "Image loaded successfully.";
+
+      } catch (error) {
+        console.error(error);
+        message.textContent = "Could not load image. Check API Gateway, Lambda, CORS, and S3 permissions.";
+      }
     }
-  });
-</script>
+  </script>
+
 </html>
+
 
