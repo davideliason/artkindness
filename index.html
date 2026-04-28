@@ -51,6 +51,29 @@
     </a>
    </p> 
   </footer>
+
+  <button id="lambdaButton">Run Lambda</button>
+
+<p id="result"></p>
+
+<script>
+  const apiUrl = "https://v30mud3lc9.execute-api.us-west-2.amazonaws.com/hello";
+
+  document.getElementById("lambdaButton").addEventListener("click", async () => {
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+
+      document.getElementById("result").textContent =
+        data.message || JSON.stringify(data);
+
+    } catch (error) {
+      document.getElementById("result").textContent =
+        "Error calling Lambda";
+      console.error(error);
+    }
+  });
+</script>
 </body>
 </html>
 
