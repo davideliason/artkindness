@@ -54,41 +54,6 @@
     </a>
    </p> 
   </footer>
-
-<a href="#" id="playAudio">Click Me</a>
-
-<audio id="artAudio">
-  <source src="art_happiness.mp3" type="audio/mpeg">
-</audio>
-
-  <p>Click the button below to load an image from S3 using Lambda and API Gateway.</p>
-  
-    <div id="image-card">
-      <h2>Image from S3</h2>
-      <img id="s3-image" src="" alt="Image loaded from S3" />
-    </div>
-  </div>
-</footer>
-</body>
-  <script>
-document.getElementById("playAudio").addEventListener("click", function(event) {
-    event.preventDefault();
-
-    const audio = document.getElementById("artAudio");
-
-    audio.currentTime = 0;
-    audio.play();
-    async function loadImage() {
-      const apiUrl = "https://9nxzsz8l15.execute-api.us-west-2.amazonaws.com/get-image";
-      document.getElementById("result").textContent =
-        data.message || JSON.stringify(data);
-    } catch (error) {
-      document.getElementById("result").textContent =
-        "Error calling Lambda";
-      console.error(error);
-    }
-  });
-</script>
 </body>
 </html>
 
