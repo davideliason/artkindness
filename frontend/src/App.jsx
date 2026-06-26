@@ -5,6 +5,7 @@ import About from "./pages/About.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import Login from "./pages/Login.jsx";
 import Art from "./pages/Art.jsx";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/art" element={<Art />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
     </>
