@@ -1,4 +1,7 @@
-function Welcome({ name }) {
+import { useState} from "react";
+
+function Welcome() {
+  const [name,setName] = useState("Jane")
 
   function sayHello() {
     alert("hello" + name)
