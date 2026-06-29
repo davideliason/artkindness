@@ -1,4 +1,6 @@
-
+function Welcome({ name }) {
+  return <h2>hello world {name}</h2>
+}
 
 
 export default function Art() {
@@ -7,7 +9,7 @@ export default function Art() {
       <h1>AI Art Generator</h1>
       <p>Upload a photo for an inspiring quote (coming soon).</p>
 
-   
+     <Welcome name="hello" />
 
       <input type="file" accept="image/*" />
 
