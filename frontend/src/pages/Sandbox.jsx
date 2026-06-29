@@ -6,7 +6,11 @@ function NameForm(){
 
    function handleChange(event){
       setName(event.target.value);
+   }
 
+   function handleSubmit(event){
+    event.preventDefault();
+    setSubmittedName(name);
    }
 
    return (
@@ -14,6 +18,13 @@ function NameForm(){
           <h5>Names</h5>
           <input value={name} onChange={handleChange}></input>
           <p>Hello {name} </p>
+
+          <form onSubmit={handleSubmit}>
+            <input value={name} onChange={handleChange} />
+            <button type="submit">Submit</button>
+
+            <p>Submitted: {submittedName}</p>
+          </form>
       </div>
     )
 
