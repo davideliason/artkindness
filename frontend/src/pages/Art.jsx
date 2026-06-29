@@ -1,6 +1,17 @@
 function Welcome({ name }) {
-  return <h2>hello world {name}</h2>
+
+  function sayHello() {
+    alert("hello" + name)
+  }
+
+   return (
+      <div>
+        <h3> Hello {name} </h3>
+        <button onClick={sayHello}> say hello </button>
+      </div>
+    )
 }
+
 
 
 export default function Art() {
@@ -10,6 +21,8 @@ export default function Art() {
       <p>Upload a photo for an inspiring quote (coming soon).</p>
 
      <Welcome name="hello" />
+
+
 
       <input type="file" accept="image/*" />
 
