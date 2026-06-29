@@ -12,6 +12,7 @@ export default function Navbar() {
         <NavLink to="/art">Art</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/sandbox">Sandbox</NavLink>
       </div>
     </nav>
   );

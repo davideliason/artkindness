@@ -6,6 +6,7 @@ import Pricing from "./pages/Pricing.jsx";
 import Login from "./pages/Login.jsx";
 import Art from "./pages/Art.jsx";
 import Contact from "./pages/Contact";
+import Sandbox from "./pages/Sandbox.jsx";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/art" element={<Art />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sandbox" element={<Sandbox />} />
         </Routes>
       </main>
     </>
