@@ -1,36 +1,44 @@
 import {useState} from "react";
 
-function FormData(){
-  const [name,setName] = useState("tom");
-  const [submittedName,setSubmittedName] = useState("");
+function SignUpForm(){
+  const [formData,setFormData]=useState(
+   {
+     name:"",
+     faveColor:"",
+    });
 
-  function handleChange(event){
-    setName(event.target.value);
-    }
+  function handleNameChange(event){
+    setFormData({
+      ...formData, 
+      name: event.target.value
+    });
+  }
 
-    function handleSubmit(event){
-      event.preventDefault();
-      setSubmittedName(name);
-    }
+  function handleFaveColorChange(event){
+    setFormData({
+      ...formData,
+      faveColor:event.target.value
+    });
+  }
 
-  return(
+
+
+ return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input value={name} onChange={handleChange} />
-        <button type="submit">submit</button>
-        <h5>submitted name: {submittedName}</h5>
-      </form>
+      <input value={formData.name} onChange={handleNameChange} />
+      <p>name: {formData.name}</p>
+      <input value={formData.faveColor} onChange={handleFaveColorChange} />
+      <p> faveColor: {formData.faveColor} </p>
     </div>
-    )
+  );
 }
-
 
 export default function Sandbox() {
   return (
     <section>
       <h1>Sandbox</h1>
       <p>A place to try new things..</p>
-      <FormData />
+      <SignUpForm />
 
     </section>
   );
