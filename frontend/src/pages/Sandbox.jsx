@@ -1,11 +1,13 @@
 import { useState } from "react";
 
+
 export default function Sandbox() {
   const [artworkName, setArtworkName] = useState("Kind Robot");
   const [message, setMessage] = useState("");
   const [returnedName, setReturnedName] = useState("test");
+  const [savedKey, setSavedKey] = useState("");
 
-  async function callHellolLambda() {
+  async function callHelloLambda() {
     const response = await fetch(
       "https://jn41btrinc.execute-api.us-west-2.amazonaws.com/hello"
     );
@@ -33,9 +35,12 @@ export default function Sandbox() {
 
     const data = await response.json();
 
-    console.log(data);
+  console.log("The Status:", response.status);
+  console.log("POST /artwork response:", data);
 
-    setReturnedName(data.artworkName);
+  setReturnedName(data.artworkName || "");
+  setMessage(data.message || "");
+  setSavedKey(data.key || "No key returned from Lambda");
   }
 
   return (
@@ -43,7 +48,7 @@ export default function Sandbox() {
       <h1>Sandbox</h1>
       <p>A place to try new things here.</p>
 
-      <button onClick={callHellolLambda}>Call Hello Lambda</button>
+      <button onClick={callHelloLambda}>Call Hello Lambda</button>
       <p>{message}</p>
 
       <input
@@ -53,6 +58,8 @@ export default function Sandbox() {
 
       <button onClick={sendArtworkName}>Send Artwork Name</button>
       <p>Returned name: {returnedName}</p>
+      <p>Message: {message}</p>
+      <p>Saved s3 key: {savedKey}</p>
     </section>
   );
 }
