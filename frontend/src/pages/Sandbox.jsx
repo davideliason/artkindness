@@ -5,14 +5,14 @@ export default function Sandbox() {
   const [message, setMessage] = useState("");
   const [returnedName, setReturnedName] = useState("test");
 
-  async function callLambda() {
+  async function callHellolLambda() {
     const response = await fetch(
       "https://jn41btrinc.execute-api.us-west-2.amazonaws.com/hello"
     );
 
     const data = await response.json();
 
-    console.log(data);
+    console.log("here is the data from helloLambda",data);
 
     setMessage(data.message);
   }
@@ -43,7 +43,7 @@ export default function Sandbox() {
       <h1>Sandbox</h1>
       <p>A place to try new things here.</p>
 
-      <button onClick={callLambda}>Call Hello Lambda</button>
+      <button onClick={callHellolLambda}>Call Hello Lambda</button>
       <p>{message}</p>
 
       <input
