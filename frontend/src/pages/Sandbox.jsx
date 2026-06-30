@@ -23,17 +23,22 @@ function TodoList(){
     setTodoText("");
   }
 
+  function removeTodo(todoId){
+    setTodos(todos.filter((todo) => todo.id !== todoId));
+  }
+
   return (
      <div>
         <h5>ToDos</h5>
         <input value={todoText} onChange={handleTodoTextChange} />
         <button onClick={addTodo}>Add todo</button>
         <ul>
-          <li>
             {todos.map((todo) => 
-                <li key={todo.id}>{todo.text}</li>
+                <li key={todo.id}>
+                  {todo.text}
+                  <button onClick={() => removeTodo(todo.id)}>Remove</button>
+                </li>
               )}
-          </li>
         </ul>
      </div>
     );
