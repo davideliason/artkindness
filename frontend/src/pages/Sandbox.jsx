@@ -7,27 +7,21 @@ function SignUpForm(){
      faveColor:"",
     });
 
-  function handleNameChange(event){
-    setFormData({
-      ...formData, 
-      name: event.target.value
-    });
+  function handleChangeEvent(event){
+     const fieldName = event.target.name;
+     const fieldValue = event.target.value;
+
+     setFormData({
+     ...formData, 
+     [fieldName]: fieldValue,
+     });
   }
-
-  function handleFaveColorChange(event){
-    setFormData({
-      ...formData,
-      faveColor:event.target.value
-    });
-  }
-
-
 
  return (
     <div>
-      <input value={formData.name} onChange={handleNameChange} />
+      <input name="name" value={formData.name} onChange={handleChangeEvent} />
       <p>name: {formData.name}</p>
-      <input value={formData.faveColor} onChange={handleFaveColorChange} />
+      <input name="faveColor" value={formData.faveColor} onChange={handleChangeEvent} />
       <p> faveColor: {formData.faveColor} </p>
     </div>
   );
