@@ -28,6 +28,9 @@ export default function Sandbox() {
         console.log("POST /words response:", data);
 
         setSavedKey(data.key || "");
+        setWord("");
+
+        await loadWords();
       } catch (error) {
         console.error("saveWord failed:", error);
       }
