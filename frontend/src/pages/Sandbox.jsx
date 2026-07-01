@@ -4,10 +4,16 @@ export default function Sandbox() {
   const [word, setWord] = useState("");
   const [savedKey, setSavedKey] = useState("");
   const [words, setWords] = useState([]);
+  const [message,setMessage] = useState("");
 
 
 
     async function saveWord() {
+
+      if (word.trim() === "") {
+        setMessage("Please enter a word");
+        return;
+        }
       try {
         const response = await fetch(
           "https://r7wij4blkl.execute-api.us-west-2.amazonaws.com/words",
@@ -54,6 +60,7 @@ export default function Sandbox() {
   return (
     <section>
       <h1>Sandbox</h1>
+      <h5>Message: {message}</h5>
 
       <input
         value={word}
