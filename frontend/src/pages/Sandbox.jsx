@@ -34,6 +34,7 @@ export default function Sandbox() {
         console.log("POST /words response:", data);
 
         setSavedKey(data.key || "");
+        setMessage(data.message || "word saved");
         setWord("");
 
         await loadWords();
