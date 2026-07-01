@@ -1,57 +1,28 @@
-import {useState} from "react";
+import { useState } from "react";
 
 export default function Sandbox() {
-  
-    const [message,setMessage] = useState(".");
-    const [savedKey, setSavedKey] = useState("..");
+  const [word, setWord] = useState("");
+  const [savedKey, setSavedKey] = useState("");
+  const [message, setMessage] = useState("");
 
-    async function sendMessage() {
-      const response = await fetch(
-        "https://YOUR_API_ID.execute-api.us-west-2.amazonaws.com/artwork",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      setMessage(data.message);
-      setSavedKey(data.key);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  async function saveWord() {
+    console.log("Saving word:", word);
+  }
 
   return (
     <section>
       <h1>Sandbox</h1>
-      <p>
-        Try it. Make it. Break it here.
-        <p>Message: {message}</p>
-        <p>Saved Key: {savedKey}</p>
-      </p>
 
-     
+      <input
+        value={word}
+        onChange={(event) => setWord(event.target.value)}
+        placeholder="Enter one word"
+      />
 
+      <button onClick={saveWord}>Save word</button>
+
+      <p>Message: {message}</p>
+      <p>Saved key: {savedKey}</p>
     </section>
   );
 }
