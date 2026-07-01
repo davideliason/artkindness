@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Sandbox() {
   const [word, setWord] = useState("");
   const [savedKey, setSavedKey] = useState("");
-  const [message, setMessage] = useState("")
+  const [words, setWords] = useState([]);
 
 
 
@@ -27,13 +27,24 @@ export default function Sandbox() {
         console.log("POST /words status:", response.status);
         console.log("POST /words response:", data);
 
-        setMessage(data.message || "");
         setSavedKey(data.key || "");
       } catch (error) {
         console.error("saveWord failed:", error);
-        setMessage("Request failed");
       }
     }
+
+    async function loadWords() {
+        const response = await fetch(
+          "https://r7wij4blkl.execute-api.us-west-2.amazonaws.com/words"
+        );
+
+        const data = await response.json();
+
+        console.log("GET /words status:", response.status);
+        console.log("GET /words response:", data);
+
+        setWords(data.words || []);
+      }
 
 
 
@@ -49,8 +60,15 @@ export default function Sandbox() {
 
       <button onClick={saveWord}>Save word</button>
 
-      <p>Message: {message}</p>
-      <p>Saved key: {savedKey}</p>
+      <button onClick={loadWords}>Load saved words</button>
+
+      <ul>
+        {words.map((item) => (
+          <li key={item.key}>
+            {item.word}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
